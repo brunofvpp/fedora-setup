@@ -1,28 +1,27 @@
 set -e
 
-ascii_art='________                  __        ___.
-\_____  \   _____ _____  |  | ____ _\_ |__
- /   |   \ /     \\__   \ |  |/ /  |  \ __ \
-/    |    \  Y Y  \/ __ \|    <|  |  / \_\ \
-\_______  /__|_|  (____  /__|_ \____/|___  /
-        \/      \/     \/     \/         \/
-'
+ascii_art='    ________________  ____  ____  ___       _____ ______________  ______ 
+   / ____/ ____/ __ \/ __ \/ __ \/   |     / ___// ____/_  __/ / / / __ \
+  / /_  / __/ / / / / / / / /_/ / /| |     \__ \/ __/   / / / / / / /_/ /
+ / __/ / /___/ /_/ / /_/ / _, _/ ___ |    ___/ / /___  / / / /_/ / ____/ 
+/_/   /_____/_____/\____/_/ |_/_/  |_|   /____/_____/ /_/  \____/_/      
+                                                                         '
 
 echo -e "$ascii_art"
-echo "=> Omakub is for fresh Ubuntu 24.04+ installations only!"
+echo "=> Omakub-fd is for fresh Fedora 42+ installations only!"
 echo -e "\nBegin installation (or abort with ctrl+c)..."
 
-sudo apt-get update >/dev/null
-sudo apt-get install -y git >/dev/null
+sudo dnf update >/dev/null
+sudo dnf install -y git >/dev/null
 
-echo "Cloning Omakub..."
-rm -rf ~/.local/share/omakub
-git clone https://github.com/basecamp/omakub.git ~/.local/share/omakub >/dev/null
+echo "Cloning Omakube-fd..."
+rm -rf ~/.local/share/omakub-fd
+git clone https://github.com/brunofvpp/omakub-fd.git ~/.local/share/omakub-fd >/dev/null
 if [[ $OMAKUB_REF != "master" ]]; then
-	cd ~/.local/share/omakub
+	cd ~/.local/share/omakub-fd
 	git fetch origin "${OMAKUB_REF:-stable}" && git checkout "${OMAKUB_REF:-stable}"
 	cd -
 fi
 
 echo "Installation starting..."
-source ~/.local/share/omakub/install.sh
+source ~/.local/share/omakub-fd/install.sh

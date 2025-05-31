@@ -1,0 +1,29 @@
+# Directories
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
+# File system
+alias lsa='ls -a'
+alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+alias cd='z'
+
+# DNF
+alias u='sudo dnf update'
+alias up='sudo dnf upgrade -y; flatpak update -y'
+alias i='sudo dnf install -y'
+alias p='sudo dnf remove -y'
+
+# ZSH
+alias zz='source ~/.zshrc'
+alias zx='nano ~/.zshrc'
+
+# DOCKER
+alias d='docker'
+alias ds='docker stop $(docker ps -aq)'
+
+# Tools
+alias g='git'
+alias bat='batcat'
+alias lzg='lazygit'
+alias lzd='lazydocker'

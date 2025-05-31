@@ -1,15 +1,7 @@
-# Add the official Docker repo
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo wget -qO /etc/apt/keyrings/docker.asc https://download.docker.com/linux/ubuntu/gpg
-sudo chmod a+r /etc/apt/keyrings/docker.asc
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt update
-
-# Install Docker engine and standard plugins
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
-
-# Give this user privileged Docker access
-sudo usermod -aG docker ${USER}
-
-# Limit log size to avoid running out of disk
+cd /tmp
+sudo dnf config-manager --add-repo https://download.docker.com/linux/rhel/docker-ce.repo
+wget -qO docker-desktop.rpm "https://desktop.docker.com/linux/main/amd64/docker-desktop-x86_64-rhel.rpm"
+sudo dnf install -y ./docker-desktop.rpm
+rm docker-desktop.rpm
 echo '{"log-driver":"json-file","log-opts":{"max-size":"10m","max-file":"5"}}' | sudo tee /etc/docker/daemon.json
+cd -

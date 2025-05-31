@@ -1,4 +1,4 @@
 #!/bin/bash
 
-source $OMAKUB_PATH/bin/omakub-sub/header.sh
-source $OMAKUB_PATH/bin/omakub-sub/menu.sh
+source $OMAKUB_PATH/bin/omakub-fd-sub/header.sh
+source $OMAKUB_PATH/bin/omakub-fd-sub/menu.sh

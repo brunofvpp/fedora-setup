@@ -1,0 +1,4 @@
+# Set complete path
+export PATH="./bin:$HOME/.local/bin:$HOME/.local/share/omakub-fd/bin:$PATH"
+set +h
+export OMAKUB_PATH="/home/$USER/.local/share/omakub-fd"
