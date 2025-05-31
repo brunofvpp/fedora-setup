@@ -11,7 +11,7 @@ echo -e "$ascii_art"
 echo "=> Omakub-fd is for fresh Fedora 42+ installations only!"
 echo -e "\nBegin installation (or abort with ctrl+c)..."
 
-sudo dnf update >/dev/null
+sudo dnf update -y >/dev/null
 sudo dnf install -y git >/dev/null
 
 echo "Cloning Omakube-fd..."
