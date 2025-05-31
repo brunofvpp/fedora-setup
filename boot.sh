@@ -16,10 +16,10 @@ sudo dnf install -y git >/dev/null
 
 echo "Cloning Omakube-fd..."
 rm -rf ~/.local/share/omakub-fd
-git clone https://github.com/brunofvpp/omakub-fd.git ~/.local/share/omakub-fd >/dev/null
+git clone https://github.com/brunofvpp/fedora-setup.git ~/.local/share/omakub-fd >/dev/null
 if [[ $OMAKUB_REF != "master" ]]; then
 	cd ~/.local/share/omakub-fd
-	git fetch origin "${OMAKUB_REF:-stable}" && git checkout "${OMAKUB_REF:-stable}"
+	git fetch origin "${OMAKUB_REF:-master}" && git checkout "${OMAKUB_REF:-master}"
 	cd -
 fi
 
